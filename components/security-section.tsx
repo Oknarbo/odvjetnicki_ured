@@ -18,7 +18,7 @@ export function SecuritySection() {
               Dizajnirano za odvjetnički ured: sigurnost prije automatizacije
             </h2>
             <p className="mt-1 text-sm text-slate-500">
-              AI priprema pregled — odvjetnica odlučuje.
+              Sustav priprema pregled — odvjetnica odlučuje.
             </p>
           </div>
         </div>

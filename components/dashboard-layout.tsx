@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, User } from "lucide-react";
+import { Menu, User, Info } from "lucide-react";
 import { DemoBanner } from "@/components/demo-banner";
 import { Sidebar } from "@/components/sidebar";
 import { TopStats } from "@/components/top-stats";
@@ -22,6 +22,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { cases, draftResponses, getCaseById, getDraftById } from "@/lib/data";
 import type { DashboardSection } from "@/lib/types";
 
@@ -30,7 +31,7 @@ const sectionTitles: Record<DashboardSection, string> = {
   predmeti: "Predmeti",
   "novi-upiti": "Novi upiti",
   dokumenti: "Dokumenti",
-  rokovi: "Mogući rokovi",
+  rokovi: "Mogući rokovi za provjeru",
   "draft-odgovori": "Draft odgovori",
   sigurnost: "Sigurnost",
   postavke: "Postavke demo sustava",
@@ -154,39 +155,48 @@ export function DashboardLayout() {
 
         <div className="flex flex-1 flex-col overflow-hidden">
           {/* Header */}
-          <header className="flex items-center justify-between border-b border-slate-200 bg-white px-4 py-3 sm:px-6">
-            <div className="flex items-center gap-3">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="lg:hidden"
-                onClick={() => setMobileNavOpen(true)}
-              >
-                <Menu className="h-5 w-5" />
-              </Button>
-              <div>
-                <h1 className="text-base font-semibold text-slate-900">
-                  {sectionTitles[activeSection]}
-                </h1>
-                <p className="text-xs text-slate-500 hidden sm:block">
-                  Interni sustav — read-only demo
-                </p>
-              </div>
-            </div>
-            <div className="flex items-center gap-2 sm:gap-3">
-              <Badge variant="readonly" className="text-[10px] sm:text-xs">
-                Read-only mode
-              </Badge>
-              <div className="flex items-center gap-2 rounded-lg border border-slate-200 px-2 sm:px-3 py-1.5">
-                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-royal/10">
-                  <User className="h-4 w-4 text-accent-royal" />
-                </div>
-                <div className="hidden sm:block">
-                  <p className="text-xs font-medium text-slate-900">Z. Prlić</p>
-                  <p className="text-[10px] text-slate-500">demo korisnik</p>
+          <header className="border-b border-slate-200 bg-white">
+            <div className="flex items-center justify-between px-4 py-3 sm:px-6">
+              <div className="flex items-center gap-3 min-w-0">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="lg:hidden shrink-0"
+                  onClick={() => setMobileNavOpen(true)}
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+                <div className="min-w-0">
+                  <h1 className="text-base font-semibold text-slate-900 truncate">
+                    {sectionTitles[activeSection]}
+                  </h1>
+                  <p className="text-xs text-slate-500">
+                    Interni sustav — read-only demo
+                  </p>
                 </div>
               </div>
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                <Badge variant="readonly" className="text-[10px] sm:text-xs">
+                  Read-only mode
+                </Badge>
+                <div className="flex items-center gap-2 rounded-lg border border-slate-200 px-2 sm:px-3 py-1.5">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-accent-royal/10">
+                    <User className="h-4 w-4 text-accent-royal" />
+                  </div>
+                  <div className="hidden sm:block">
+                    <p className="text-xs font-medium text-slate-900">Demo korisnik</p>
+                    <p className="text-[10px] text-slate-500">odvjetnica — demo uloga</p>
+                  </div>
+                </div>
+              </div>
             </div>
+            <Alert variant="info" className="rounded-none border-x-0 border-b-0 py-2.5 px-4 sm:px-6 flex items-start gap-2 bg-slate-50/80">
+              <Info className="h-4 w-4 text-slate-600 shrink-0 mt-0.5" />
+              <AlertDescription className="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                Sustav ne procjenjuje pravni ishod predmeta. Prikazuje samo
+                organizacijski pregled za ured.
+              </AlertDescription>
+            </Alert>
           </header>
 
           {/* Main content */}

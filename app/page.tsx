@@ -19,7 +19,7 @@ export default function HomePage() {
           </div>
           <div>
             <p className="text-sm font-semibold text-slate-900">Digitalni uredski asistent</p>
-            <p className="text-xs text-slate-500">Interni AI asistent za odvjetnički ured</p>
+            <p className="text-xs text-slate-500">Interni uredski asistent</p>
           </div>
         </div>
       </header>

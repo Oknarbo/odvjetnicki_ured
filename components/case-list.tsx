@@ -75,7 +75,7 @@ export function CaseList({ cases, selectedId, onSelect }: CaseListProps) {
                     {c.hasDeadlineReview && (
                       <Badge variant="warning" className="text-[10px] gap-0.5">
                         <AlertCircle className="h-2.5 w-2.5" />
-                        Mogući rok
+                        Mogući rok za provjeru
                       </Badge>
                     )}
                   </div>

@@ -17,7 +17,7 @@ export function DocumentsSection() {
       <div>
         <h2 className="text-xl font-semibold text-slate-900">Dokumenti</h2>
         <p className="mt-1 text-sm text-slate-500">
-          Pregled dokumenata s AI bilješkama — sve podatke ručno potvrdite.
+          Pregled dokumenata s uredskim bilješkama — sve podatke ručno potvrdite.
         </p>
       </div>
 
@@ -30,7 +30,7 @@ export function DocumentsSection() {
                 <th className="px-4 py-3 text-left font-medium text-slate-600">Predmet</th>
                 <th className="px-4 py-3 text-left font-medium text-slate-600">Tip</th>
                 <th className="px-4 py-3 text-left font-medium text-slate-600">Status</th>
-                <th className="px-4 py-3 text-left font-medium text-slate-600">AI bilješka</th>
+                <th className="px-4 py-3 text-left font-medium text-slate-600">Uredska bilješka</th>
                 <th className="px-4 py-3 text-left font-medium text-slate-600">Radnja</th>
               </tr>
             </thead>

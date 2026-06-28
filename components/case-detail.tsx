@@ -11,7 +11,7 @@ import {
   CheckCircle2,
   Clock,
   FileText,
-  Sparkles,
+  ClipboardList,
   XCircle,
 } from "lucide-react";
 
@@ -79,11 +79,11 @@ export function CaseDetail({ caseData }: CaseDetailProps) {
         {caseData.lastEvent}
       </div>
 
-      <Card className="border-blue-100 bg-blue-50/30">
+      <Card className="border-slate-200 bg-slate-50/50">
         <CardHeader className="pb-2">
           <CardTitle className="flex items-center gap-2 text-sm">
-            <Sparkles className="h-4 w-4 text-accent-royal" />
-            AI sažetak
+            <ClipboardList className="h-4 w-4 text-accent-royal" />
+            Administrativni sažetak
           </CardTitle>
         </CardHeader>
         <CardContent>

@@ -56,7 +56,7 @@ export function DemoSettingsSection() {
           <CardTitle className="text-sm">Demo korisnik</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-slate-600">Z. Prlić — demo korisnik (odvjetnica)</p>
+          <p className="text-sm text-slate-600">Demo korisnik — uloga odvjetnice (izmišljeni podaci)</p>
           <p className="mt-2 text-xs text-slate-400">
             U pravi verziji: autentifikacija, uloge i audit log.
           </p>

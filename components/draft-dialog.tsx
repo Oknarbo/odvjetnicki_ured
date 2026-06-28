@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, AlertCircle } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { AlertCircle } from "lucide-react";
 
 interface DraftDialogProps {
   open: boolean;
@@ -24,7 +23,7 @@ interface DraftDialogProps {
 export function DraftDialog({
   open,
   onOpenChange,
-  title = "Nacrt odgovora — potrebno odobrenje",
+  title = "Administrativni nacrt odgovora",
   body,
   onMarkForReview,
 }: DraftDialogProps) {
@@ -42,16 +41,17 @@ export function DraftDialog({
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>
-            Administrativni nacrt — ne šalje se automatski.
+            Nacrt za internu pripremu — ne šalje se automatski.
           </DialogDescription>
         </DialogHeader>
         <pre className="whitespace-pre-wrap rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-700 font-sans">
           {body}
         </pre>
-        <Alert variant="warning">
-          <AlertCircle className="h-4 w-4" />
-          <AlertDescription className="text-xs">
-            Ovo je administrativni nacrt. Ne šalje se bez pregleda i odobrenja odvjetnice.
+        <Alert variant="warning" className="flex items-start gap-2">
+          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+          <AlertDescription className="text-sm leading-relaxed">
+            Ovaj nacrt nije poslan. Služi kao priprema i šalje se tek nakon pregleda
+            i odobrenja odvjetnice.
           </AlertDescription>
         </Alert>
         <div className="flex flex-wrap gap-2 justify-end">

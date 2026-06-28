@@ -22,7 +22,7 @@ export function ActionsPanel({
   onAddNote,
 }: ActionsPanelProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-sm">Predložene radnje</CardTitle>

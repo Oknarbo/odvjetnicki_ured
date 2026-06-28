@@ -13,7 +13,7 @@ import type {
 export const DEMO_BANNER =
   "Konceptni demo — svi podaci su izmišljeni. Ovo nije službena stranica odvjetničkog ureda.";
 
-export const OFFICE_NAME = "Koncept za odvjetnički ured Zrinke Prlić";
+export const OFFICE_NAME = "Konceptni demo internog uredskog asistenta";
 
 export const kpiStats: KpiStat[] = [
   {
@@ -392,7 +392,7 @@ export const introCards = [
   },
   {
     title: "Rokovi samo za provjeru",
-    description: "AI označava moguće rokove, odvjetnica potvrđuje.",
+    description: "Sustav označava moguće rokove za provjeru, odvjetnica potvrđuje.",
   },
   {
     title: "Draftovi, ne automatski odgovori",
@@ -415,7 +415,7 @@ export const securityPrinciples: SecurityPrinciple[] = [
   },
   {
     title: "Bez pravnih savjeta",
-    description: "AI ne zamjenjuje odvjetnicu.",
+    description: "Sustav ne zamjenjuje odvjetnicu niti daje pravne savjete.",
   },
   {
     title: "Ljudsko odobrenje",
@@ -441,6 +441,7 @@ export const securityModeItems = [
   "Prava verzija može raditi lokalno u uredu",
   "Cloud modeli se mogu koristiti samo za anonimizirane ili odobrene zadatke",
   "Sve radnje mogu imati audit log",
+  "U ovom demu nema obrade stvarnih dokumenata, stvarnih stranaka ni stvarnih predmeta",
 ];
 
 export const officeRoles: OfficeRole[] = [
@@ -460,7 +461,7 @@ export const officeRoles: OfficeRole[] = [
     permissions: [
       "pripremiti dokumente",
       "označiti status predmeta",
-      "pregledati AI sažetke",
+      "pregledati administrativne sažetke",
       "pripremiti nacrte za pregled",
     ],
   },
@@ -481,7 +482,7 @@ export const navItems: NavItem[] = [
   { id: "predmeti", label: "Predmeti", icon: "briefcase" },
   { id: "novi-upiti", label: "Novi upiti", icon: "mail" },
   { id: "dokumenti", label: "Dokumenti", icon: "file-text" },
-  { id: "rokovi", label: "Mogući rokovi", icon: "calendar-clock" },
+  { id: "rokovi", label: "Mogući rokovi za provjeru", icon: "calendar-clock" },
   { id: "draft-odgovori", label: "Draft odgovori", icon: "file-edit" },
   { id: "sigurnost", label: "Sigurnost", icon: "shield" },
   { id: "postavke", label: "Postavke demo sustava", icon: "settings" },
@@ -507,7 +508,7 @@ export const statusLabels: Record<string, string> = {
   "ceka-dokumente": "Čeka dokumente",
   "draft-spreman": "Draft spreman",
   "novi-upit": "Novi upit",
-  "rok-za-provjeru": "Rok za provjeru",
+  "rok-za-provjeru": "Mogući rok za provjeru",
 };
 
 export const urgencyLabels: Record<string, string> = {

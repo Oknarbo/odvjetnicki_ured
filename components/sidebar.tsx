@@ -61,10 +61,10 @@ export function Sidebar({ activeSection, onNavigate, className }: SidebarProps) 
               key={item.id}
               onClick={() => onNavigate(item.id)}
               className={cn(
-                "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors cursor-pointer",
+                "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all cursor-pointer border-l-2",
                 isActive
-                  ? "bg-white/10 text-white font-medium"
-                  : "text-slate-400 hover:bg-white/5 hover:text-slate-200"
+                  ? "border-l-accent-muted bg-white/10 text-white font-medium"
+                  : "border-l-transparent text-slate-400 hover:bg-white/5 hover:text-slate-200"
               )}
             >
               <Icon className="h-4 w-4 shrink-0" />
