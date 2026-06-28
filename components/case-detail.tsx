@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { statusLabels, urgencyLabels } from "@/lib/data";
-import type { Case } from "@/lib/types";
+import { AskAssistantCard } from "@/components/ask-assistant-card";
+import type { AssistantTaskId, Case } from "@/lib/types";
 import {
   AlertCircle,
   CheckCircle2,
@@ -17,6 +18,9 @@ import {
 
 interface CaseDetailProps {
   caseData: Case;
+  assistantTask?: AssistantTaskId | null;
+  assistantTaskKey?: number;
+  onAssistantTaskHandled?: () => void;
 }
 
 function getStatusVariant(status: string) {
@@ -36,7 +40,12 @@ function getStatusVariant(status: string) {
   }
 }
 
-export function CaseDetail({ caseData }: CaseDetailProps) {
+export function CaseDetail({
+  caseData,
+  assistantTask,
+  assistantTaskKey,
+  onAssistantTaskHandled,
+}: CaseDetailProps) {
   return (
     <motion.div
       key={caseData.id}
@@ -167,6 +176,13 @@ export function CaseDetail({ caseData }: CaseDetailProps) {
           ))}
         </ul>
       </div>
+
+      <AskAssistantCard
+        caseData={caseData}
+        externalTask={assistantTask}
+        externalTaskKey={assistantTaskKey}
+        onExternalTaskHandled={onAssistantTaskHandled}
+      />
     </motion.div>
   );
 }

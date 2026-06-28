@@ -24,7 +24,7 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { cases, draftResponses, getCaseById, getDraftById } from "@/lib/data";
-import type { DashboardSection } from "@/lib/types";
+import type { AssistantTaskId, DashboardSection } from "@/lib/types";
 
 const sectionTitles: Record<DashboardSection, string> = {
   pregled: "Pregled dana",
@@ -44,6 +44,10 @@ export function DashboardLayout() {
   const [draftOpen, setDraftOpen] = useState(false);
   const [checklistOpen, setChecklistOpen] = useState(false);
   const [activeDraftId, setActiveDraftId] = useState("draft-1");
+  const [assistantTask, setAssistantTask] = useState<{
+    id: AssistantTaskId;
+    key: number;
+  } | null>(null);
   const { message, showToast, hideToast } = useToast();
 
   const selectedCase = getCaseById(selectedCaseId) ?? cases[0];
@@ -60,6 +64,21 @@ export function DashboardLayout() {
     setDraftOpen(true);
   };
 
+  const handleAssistantTask = (taskId: AssistantTaskId) => {
+    setAssistantTask({ id: taskId, key: Date.now() });
+  };
+
+  const actionsPanelProps = {
+    onShowDraft: () => handleOpenDraft("draft-1"),
+    onRequestDocuments: () => setChecklistOpen(true),
+    onMarkForReview: () =>
+      showToast("Predmet označen za pregled odvjetnice (demo)"),
+    onPrepareConsultation: () =>
+      showToast("Konzultacija pripremljena za pregled (demo)"),
+    onAddNote: () => showToast("Napomena dodana u predmet (demo)"),
+    onAssistantTask: handleAssistantTask,
+  };
+
   const renderOverview = () => (
     <div className="space-y-6">
       <TopStats />
@@ -71,20 +90,15 @@ export function DashboardLayout() {
             onSelect={setSelectedCaseId}
           />
         </div>
-        <ScrollArea className="min-h-[400px] rounded-xl border border-slate-200 bg-white p-5">
-          <CaseDetail caseData={selectedCase} />
+        <ScrollArea className="min-h-[400px] max-h-[calc(100vh-220px)] rounded-xl border border-slate-200 bg-white p-5">
+          <CaseDetail
+            caseData={selectedCase}
+            assistantTask={assistantTask?.id ?? null}
+            assistantTaskKey={assistantTask?.key}
+            onAssistantTaskHandled={() => setAssistantTask(null)}
+          />
         </ScrollArea>
-        <ActionsPanel
-          onShowDraft={() => handleOpenDraft("draft-1")}
-          onRequestDocuments={() => setChecklistOpen(true)}
-          onMarkForReview={() =>
-            showToast("Predmet označen za pregled odvjetnice (demo)")
-          }
-          onPrepareConsultation={() =>
-            showToast("Konzultacija pripremljena za pregled (demo)")
-          }
-          onAddNote={() => showToast("Napomena dodana u predmet (demo)")}
-        />
+        <ActionsPanel {...actionsPanelProps} />
       </div>
     </div>
   );
@@ -96,20 +110,15 @@ export function DashboardLayout() {
         selectedId={selectedCaseId}
         onSelect={setSelectedCaseId}
       />
-      <ScrollArea className="min-h-[500px] rounded-xl border border-slate-200 bg-white p-5">
-        <CaseDetail caseData={selectedCase} />
+      <ScrollArea className="min-h-[500px] max-h-[calc(100vh-220px)] rounded-xl border border-slate-200 bg-white p-5">
+        <CaseDetail
+          caseData={selectedCase}
+          assistantTask={assistantTask?.id ?? null}
+          assistantTaskKey={assistantTask?.key}
+          onAssistantTaskHandled={() => setAssistantTask(null)}
+        />
       </ScrollArea>
-      <ActionsPanel
-        onShowDraft={() => handleOpenDraft("draft-1")}
-        onRequestDocuments={() => setChecklistOpen(true)}
-        onMarkForReview={() =>
-          showToast("Predmet označen za pregled odvjetnice (demo)")
-        }
-        onPrepareConsultation={() =>
-          showToast("Konzultacija pripremljena za pregled (demo)")
-        }
-        onAddNote={() => showToast("Napomena dodana u predmet (demo)")}
-      />
+      <ActionsPanel {...actionsPanelProps} />
     </div>
   );
 

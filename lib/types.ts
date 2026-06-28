@@ -93,3 +93,24 @@ export interface NavItem {
   label: string;
   icon: string;
 }
+
+export type AssistantTaskId =
+  | "summarize"
+  | "dates"
+  | "missing"
+  | "consultation"
+  | "compare"
+  | "draft"
+  | "custom";
+
+export interface AssistantResponse {
+  title: string;
+  body: string;
+  sources?: string[];
+  suggestedActions?: string[];
+}
+
+export interface AssistantQuickAction {
+  id: AssistantTaskId;
+  label: string;
+}

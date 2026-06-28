@@ -17,6 +17,7 @@ Premium demo aplikacija koja prikazuje kako bi interni uredski sustav mogao pomo
 - Prikazuje moguće rokove za ručnu provjeru
 - Prikazuje nacrte odgovora koji čekaju odobrenje
 - Omogućuje klikabilne interakcije (modali, toast poruke)
+- Uključuje mock **Pitaj asistenta** unutar detalja predmeta
 
 ## Što demo ne radi
 
@@ -77,3 +78,16 @@ Projekt je spreman za Vercel deployment. Povežite repozitorij ili deployajte di
 - shadcn/ui komponente
 - framer-motion
 - lucide-react
+
+### Pitaj asistenta
+
+Demo uključuje mock funkcionalnost **Pitaj asistenta o ovom predmetu**.
+U pravoj verziji odvjetnica bi mogla postavljati pitanja nad dokumentima konkretnog predmeta, primjerice:
+
+- Sažmi sve dokumente u ovom predmetu
+- Koji dokumenti nedostaju?
+- Koji su ključni datumi?
+- Pripremi briefing za konzultaciju
+- Pripremi administrativni nacrt maila
+
+Demo ne koristi pravi AI model i ne obrađuje stvarne dokumente.

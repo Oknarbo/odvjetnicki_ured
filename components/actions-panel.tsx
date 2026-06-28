@@ -4,7 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { securityModeItems } from "@/lib/data";
-import { CloudOff, HardDrive, Shield } from "lucide-react";
+import { assistantPanelTasks } from "@/lib/assistant-responses";
+import type { AssistantTaskId } from "@/lib/types";
+import { CloudOff, HardDrive, ListChecks, Shield } from "lucide-react";
 
 interface ActionsPanelProps {
   onShowDraft: () => void;
@@ -12,6 +14,7 @@ interface ActionsPanelProps {
   onMarkForReview: () => void;
   onPrepareConsultation: () => void;
   onAddNote: () => void;
+  onAssistantTask?: (taskId: AssistantTaskId) => void;
 }
 
 export function ActionsPanel({
@@ -20,6 +23,7 @@ export function ActionsPanel({
   onMarkForReview,
   onPrepareConsultation,
   onAddNote,
+  onAssistantTask,
 }: ActionsPanelProps) {
   return (
     <div className="space-y-5">
@@ -62,6 +66,27 @@ export function ActionsPanel({
           >
             Dodaj napomenu
           </Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-sm">
+            <ListChecks className="h-4 w-4 text-accent-royal" />
+            Brzi zadaci asistenta
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-2">
+          {assistantPanelTasks.map((task) => (
+            <Button
+              key={task.id}
+              variant="outline"
+              className="w-full justify-start text-sm"
+              onClick={() => onAssistantTask?.(task.id)}
+            >
+              {task.label}
+            </Button>
+          ))}
         </CardContent>
       </Card>
 
