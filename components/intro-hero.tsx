@@ -36,7 +36,7 @@ export function IntroHero({ onShowSecurity }: IntroHeroProps) {
           Digitalni uredski asistent za odvjetnički ured
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-          Koncept internog sustava koji pomaže organizirati upite, dokumente, moguće
+          Prototip internog sustava koji pomaže organizirati upite, dokumente, moguće
           rokove i nacrte odgovora — bez davanja pravnih savjeta i bez slanja ičega
           bez odobrenja odvjetnice.
         </p>
