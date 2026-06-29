@@ -11,9 +11,9 @@ import type {
 } from "./types";
 
 export const DEMO_BANNER =
-  "Konceptni demo — svi podaci su izmišljeni. Ovo nije službena stranica odvjetničkog ureda.";
+  "Prototip — svi podaci su izmišljeni. Ovo nije službena stranica odvjetničkog ureda.";
 
-export const OFFICE_NAME = "Konceptni demo internog uredskog asistenta";
+export const OFFICE_NAME = "Prototip internog uredskog asistenta";
 
 export const kpiStats: KpiStat[] = [
   {

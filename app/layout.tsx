@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Digitalni uredski asistent | Konceptni demo",
+  title: "Digitalni uredski asistent | Prototip",
   description:
-    "Konceptni demo internog digitalnog asistenta za odvjetnički ured. Svi podaci su izmišljeni.",
+    "Prototip internog digitalnog asistenta za odvjetnički ured. Svi podaci su izmišljeni.",
   robots: { index: false, follow: false },
 };
 
